@@ -15,8 +15,12 @@ This tutorial was made using Mac iOS High Sierra v 10.13.6. The following softwa
 
 ## Create a GitHub repository
 1. Go to github.com and login. Create a new account if needed.
-2. Create a new repository by providing a name at a minimum. A license is not required, but I Like to use [Creative Commons](https://creativecommons.org/)
+
+2. Click create a new repository. Provide a name at a minimum. A license is not required, but I Like to use [Creative Commons](https://creativecommons.org/)
+![alt text](images/newRepo.png "Create repository")
+
 3. Click **Set up in Desktop**. If a window appears in the browser asking how to open it, choose the option **Open GitHub Desktop.app**.
+
 4. Make sure the local desktop path looks correct, i.e., somewhere you will remember, and choose **clone**.
 
 ## List places and draft text
