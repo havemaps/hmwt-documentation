@@ -84,7 +84,9 @@ sips -Z 300 *.jpg
 
 11. This is probably the first thing added to the repository, so click **Publish branch** at the top of the window. Depending on how many images, this can take a few moments. If it is taking a very long time, it may be because the images were not resized.
 
-12. Go to GitHub.com and view the repository.
+    ![alt text](images/publish.png "Publish this branch to GitHub")
+
+12. Go to [GitHub.com](https://github.com) and view the repository.
 
 13. Click the folder for images.
 
@@ -124,14 +126,20 @@ sips -Z 300 *.jpg
 
   ![alt text](images/findReplaceComplete.png "Quotations should replace plus sign or special characters")
 
-## Create geospatial data with MyMaps
+## Create geospatial data
 
-### Add places
-I start by creating a map with mymaps.google.com to search and either manually pin or search for the places. Sometimes the places I visit might not have a precise address or indexed location, so I really like being able to see the location with the imagery.
+### Options for geocoding
+I start by creating a map with [mymaps.google.com](https://mymaps.google.com). Sometimes the places I visit might not have a precise address or indexed location (e.g., campsites, sailing locations), so I really like being able to see the location with the imagery.
 
-However, if you have more than 20 places to map that are likely to be on Google under known place names, use Geocode by Awesome Table on the sheet used in the previous section, download as .csv, and either add it to MyMaps to check the geocoding or add it directly to QGIS. If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place.
+However, if you have more than 20 places to map that are likely to be on Google under known place names, try [Geocode by Awesome Table](https://support.awesome-table.com/hc/en-us/sections/360000012309-Geocode) on the Google Sheet used in the previous sections, download as .csv, and either add it to MyMaps to check the geocoding or add it directly to QGIS. If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place and/or add any places that did not appear at all.
 
-1. Go to [mymaps.google.com](https://mymaps.google.com). If you do not have a Google account, [create one](https://accounts.google.com/SignUp) to save projects.
+If you are not using Google Sheets, there are many manual and batch ways to get latitude and longitude:
+  - [latlong.net](https://www.latlong.net/)
+  - [batchgeo.com](https://batchgeo.com/)
+  - [geocode.localfocus.nl](https://geocode.localfocus.nl/)
+
+### Add places to MyMaps
+1. Go to [mymaps.google.com](https://mymaps.google.com). If you do not have a [Google account](https://accounts.google.com/SignUp), create one to save projects.
 
 2. Click the red circle with the plus sign in the bottom right to create a new map.
 
@@ -162,11 +170,17 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 ### Export KML
 1. To the right of the map title, click the three stacked dots.
 
+  ![alt text](images/threeDots.png "Click the three dots")
+
 2. Choose Export to KML/KMZ.
+
+  ![alt text](images/exportKML.png "Click export KML")
 
 3. In the pop up, click the radio button for **Export as KML instead of KMZ.**
 
-4. Click Download.
+  ![alt text](images/keepKML.png "Check export as KML instead of KMZ")
+
+4. Click **Download**.
 
 ## Working with QGIS
 If downloading QGIS3 for the first time, see the appendix for installing on a Mac. It is not a one-click install and has very specific Python requirements.
