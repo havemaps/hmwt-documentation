@@ -1,8 +1,6 @@
 # Creating and hosting Leaflet maps with qgis2web and GitHub
 
 ## Getting started
-### Difficulty: Medium
-This tutorial requires basic knowledge of Google products (e.g., searching) and working with spreadsheets (e.g., adding and copying functions). No prior experience with GIS or Javascript is necessary. Some familiarity with HTML and HTML documents is helpful.
 
 ### Download dependencies
 This tutorial was made using Mac iOS High Sierra v 10.13.6. The following software is used and should be installed before beginning:
