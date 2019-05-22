@@ -22,11 +22,11 @@ This tutorial was made using Mac iOS High Sierra v 10.13.6. The following softwa
 
 2. Next to **Repositories** click **New** to create a new repository. Provide a name at a minimum. Fill out the information. A license is not required, but I Like to use [Creative Commons](https://creativecommons.org/)
 
-  ![alt text](images/newRepo.png "Create repository")
+  ![Image is a screenshot highlighting the New button in GitHub](images/newRepo.png "Create repository")
 
 3. Click **Set up in Desktop**. If a window appears in the browser asking how to open it, choose the option **Open GitHub Desktop.app**.
 
-  ![alt text](images/setUpDesktop.png "Set up in desktop")
+  ![Image is a screenshot of the Quick setup in GitHub](images/setUpDesktop.png "Set up in desktop")
 
 4. Make sure the local desktop path looks correct, i.e., somewhere you will remember, and click **clone**.
 
@@ -49,7 +49,7 @@ While I am travelling, I make sure to write down the names of the places that I 
 
 5. Open the Terminal. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
 
-  ![alt text](images/terminal.png "Terminal in Spotlight")
+  ![Image is a screenshot of searching for Terminal in Mac's spotlight](images/terminal.png "Terminal in Spotlight")
 
 6. Change the directory using the command `cd` to the git repository with the images. For example:
 
@@ -80,11 +80,11 @@ sips -Z 300 *.jpg
 
 10. Click **Commit to master**.
 
-  ![alt text](images/initialCommit.png "initial commit to repository")
+  ![Image is a screenshot highlighting using GitHub desktop to make commits](images/initialCommit.png "initial commit to repository")
 
 11. This is probably the first thing added to the repository, so click **Publish branch** at the top of the window. Depending on how many images, this can take a few moments. If it is taking a very long time, it may be because the images were not resized.
 
-    ![alt text](images/publish.png "Publish this branch to GitHub")
+    ![Image is a screenshot of the Publish Branch button in GitHub Desktop](images/publish.png "Publish this branch to GitHub")
 
 12. Go to [GitHub.com](https://github.com) and view the repository.
 
@@ -94,20 +94,20 @@ sips -Z 300 *.jpg
 
 15. Right click the image, and choose copy image address.
 
-  ![alt text](images/copyPath.png "Copy image path")
+  ![Image is screenshot highlighting the Copy Image Address selection when an image is right-clicked in a GitHub online repository](images/copyPath.png "Copy image path")
 
 
 16. Open the spreadsheet with the place names and descriptions.
 
 17. Paste the image link into an empty column in the row the place described. If using a new spreadsheet, place it  **A1**.
 
-  ![alt text](images/pathSheets.png "Paste file path")
+  ![Image is a screenshot of an image address pasted into the A1 cell of Google Sheets](images/pathSheets.png "Paste file path")
 
 18. Keep copying and pasting image addresses in a down the column or next to any place with an image for all remaining images. There are many ways to get the image links into the spreadsheet. For example, you can also change the image name in the link, or if there are more than 20, finding an automated way to capture addresses may be helpful.
 
 19. In an empty cell in the rows with images, create alt text to be read by screen readers or to display when the image does not appear.
 
-  ![alt text](images/altText.png "Create alt text column")
+  ![Image is screenshot showing multiple image links in column A and alternative text in column B](images/altText.png "Create alt text column")
 
 20. In the next empty cell in the row type `=CONCATENATE`
 
@@ -122,9 +122,9 @@ sips -Z 300 *.jpg
   - Press the three stacked dots at the right of the window for more options.
   - Type + in Find and " in Replace with. Then, press Done.
 
-  ![alt text](images/findReplace.png "Use Find and Replace for special characters")
+  ![Image is a screenshot of using Find and Replace to find plus signs and replace them with quotation marks](images/findReplace.png "Use Find and Replace for special characters")
 
-  ![alt text](images/findReplaceComplete.png "Quotations should replace plus sign or special characters")
+  ![Image is a screenshot highlighting how the find and replace works in the spreadsheet to replace all plus signs with quotation marks](images/findReplaceComplete.png "Quotations should replace plus sign or special characters")
 
 ## Create geospatial data
 
@@ -145,7 +145,7 @@ If you are not using Google Sheets, there are many manual and batch ways to get 
 
 3. Search for a place traveled in the search bar by typing it in or copying it from the spreadsheet and pressing enter/return or clicking the magnifying glass button.
 
-  ![alt text](images/searchPlace.png "Search for a place")
+  ![Image is a screenshot of using the search in Google MyMaps](images/searchPlace.png "Search for a place")
 
 4. If the place appears in the correct place, click +Add to map in the bottom of the pop up box.
 If the place does **not appear**, zoom around the map to try to find the approximate location, and then, click the balloon icon below the search bar to manually add a marker.
@@ -155,7 +155,7 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 
 5. Next to the layer title, which is probably **Untitled layer**, click the three stacked dots and Open data table.
 
-  ![alt text](images/dataTable.png "Open the data table")
+  ![Image is screenshot highlighting the three dots to click](images/dataTable.png "Open the data table")
 
 6. At this point, it is possible to add new columns and include any text descriptions and data desired.
   - This is when I like to add the text description (in the description column), links, image links, and any other desired content.
@@ -170,15 +170,15 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 ### Export KML
 1. To the right of the map title, click the three stacked dots.
 
-  ![alt text](images/threeDots.png "Click the three dots")
+  ![Image is a screenshot showing the three dots to click to the right of the project naame](images/threeDots.png "Click the three dots")
 
 2. Choose Export to KML/KMZ.
 
-  ![alt text](images/exportKML.png "Click export KML")
+  ![Image is a screenshot highlighting the Export to KML/KMZ option in the menu](images/exportKML.png "Click export KML")
 
 3. In the pop up, click the radio button for **Export as KML instead of KMZ.**
 
-  ![alt text](images/keepKML.png "Check export as KML instead of KMZ")
+  ![Image is a screenshot of the Export to KML/KMZ window, highlighting the selection of the export to KML box](images/keepKML.png "Check export as KML instead of KMZ")
 
 4. Click **Download**.
 
