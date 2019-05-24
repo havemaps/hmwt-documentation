@@ -9,14 +9,14 @@ This tutorial was made using Mac iOS High Sierra v 10.13.6. The following softwa
 - [GitHub account](https://github.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [Atom text editor](https://atom.io/)
-- [Firefox](https://www.mozilla.org/en-US/firefox/new/) and/or [Chrome](https://www.google.com/chrome/) web browsers--I like viewing and testing the map in different browsers
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/) and/or [Chrome](https://www.google.com/chrome/) web browsers--I like viewing and testing the map in multiple browsers
 - [Google account](https://support.google.com/accounts/answer/27441?hl=en) (i.e., Gmail account)
 - Google Sheets, Excel, or another spreadsheet editor
 - Access to command line such as Terminal (MacOS)
 - Optional: website. If using WordPress, a business account and iFrame plugin are required.
 
 ## Create a GitHub repository
-1. Go to github.com and login. Create a new account if needed.
+1. Go to [github.com](https://github.com/) and login. Create a new account if needed.
 
 2. Next to **Repositories** click **New** to create a new repository. Provide a name at a minimum. Fill out the information. A license is not required, but I Like to use [Creative Commons](https://creativecommons.org/)
 
@@ -375,7 +375,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot the git repository with the qgis2web export folder](images/exportLocation.png "Exported qgis2web file")
 
-2. Rename the qgis2web file something more simple such as **webapp**.
+2. Rename the qgis2web folder to **webapp**. This rename will be important at a later step.
 
 3. Open the folder, which is now named webapp in this tutorial, and double click the **index.html** file. The map will open in the default web browser. If for some reason the map is not appearing, right click the file and select choose with to open it with another web browser (e.g., Firefox instead of Chrome).
 
@@ -515,14 +515,16 @@ googleHybrid;
 For example, [havemaps.github.io/2019_oslo/webapp](https://havemaps.github.io/2019_oslo/webapp/#13/59.9096/10.7292)
 
 ## Integrating with a website
-Iframe html tags <iframe> do not seem to be compatible with most instances of WordPress as of May 2019. The best reason I could find was "due to security reasons"
+The simplest way to embed the Leaflet map into a website is with an iframe. This may or may not be possible depending on the content management system being used.  
 
-Iframe html tags (e.g., `<iframe src=" ">`) work with some university institutional instances such as NYU Web Publishing and Hosting (wp.nyu.edu, hosting.nyu.edu).
+Iframe html tags <iframe> do not seem to be compatible with  free, personal instances of WordPress as of May 2019. The best reason I could find was "due to security reasons"
 
-If you want to integrate the exported qgis2web map with a personal or business WordPress there are a couple ways to do it.
+Iframe html tags (e.g., `<iframe src=" ">`) work with some university institutional instances of WordPress.
+
+If you want to integrate the exported qgis2web map with a personal or business WordPress that does not allow the iframe html tags there are a couple ways to do it:
 
 1. A **business plan** is required to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
-2. A **hosting service** with cPanel is required.
+2. A **hosting service** that allows you to upload html pages in the WordPress source code.
 
 ### Using the iframe html tag
 This option may work with some self-hosted websites or institutionally hosted WordPress accounts.
@@ -539,8 +541,7 @@ This option may work with some self-hosted websites or institutionally hosted Wo
 
 6. Click Preview to check out how it appears.
 
-
-### WordPress plugin: iframe plugin
+### WordPress iframe plugin
 
 1. Create a new page or post.
 
