@@ -187,6 +187,22 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 ## Working with QGIS
 If downloading QGIS3 for the first time and using a Mac, [watch this video](https://www.youtube.com/watch?v=908NyL7roFs). It is not a one-click install on Mac.
 
+### Saving a project
+
+1. Open QGIS.
+
+2. Use command + S, click the floppy disc icon in the top left of QGIS, **OR** click File>Save.
+
+3. Navigate to the git repository for this project.
+
+4. Name the QGIS project file.
+
+5. Make sure the file type is **.qgz**.
+
+    ![Image is a screenshot showing the location and file type for saving QGIS projects](images/qgz.png "Save QGIS project")
+
+6. While working in QGIS, periodically save the project. Saving the project makes sure layer styles and all other project properties, including qgis2web properties, are saved if the project needs to be paused or when it is shared with others.
+
 ### Installing QGIS Plugins
 1. Open QGIS.
 
@@ -460,6 +476,8 @@ googleHybrid;
 
 ### Push to GitHub
 1. Open GitHub Desktop.
+
+2. From the top left, make sure the current repository is the one with all of the data and leaflet files.
 
 ### Create gh-pages
 
