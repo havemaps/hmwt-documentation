@@ -383,17 +383,17 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot demonstrating how to open the file with Atom](images/openAtom.png "Open the html file with Atom")
 
-  - As changes are made in the following steps, use command + S or File>Save to save edits.
+    - As changes are made in the following steps, use command + S or File>Save to save edits.
 
-  - Periodically refresh the browser window with the map that is open to see the changes.
+    - Periodically refresh the browser window with the map that is open to see the changes.
 
-  - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes. Check to see: was a colon or curly bracket accidentally deleted? Were all variable names changed and spelled correctly?
+    - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes. Check to see: was a colon or curly bracket accidentally deleted? Were all variable names changed and spelled correctly?
 
 4. Within the head tags `<head>`, delete line 6, which begins `meta name="viewport"...`.
 
   ![Image is a screenshot demonstrating how to open the file with Atom](images/delete6.png "Open the html file with Atom")
 
-5. Copy and paste all of the following lines of code in its place or anywhere in the head `<head>` above the style tag `<style>`. Leaflet is a meant to create mobile and web responsive maps, but these will help with responsiveness.
+5. Copy and paste all of the following lines of code in its place or anywhere in the head `<head>` above the style tag `<style>`. Leaflet is a meant to create mobile and web responsive maps, but these will help even more.
 
 ```js
 <!-- Mobile meta tags to go in head-->
@@ -563,3 +563,5 @@ Maps are great! However, they may not be accessible to all online users. Below t
 
 For example, if the map is of places, make an effort to provide a narrative or list that describes the places as they are in the map.
 Starting in a spreadsheet helps with the text description process because it makes it easy to directly copy column information into the post editor. Make an effort to arrange the place descriptions in a way that will make narrative sense to the reader.
+
+Find live examples of map text descriptions on [my About page](https://havemapswilltravel.com/about) (click Expand text description) and all of my posts such as [Musandam 2019](https://havemapswilltravel.com/2019/05/15/20190404-musandam/).
