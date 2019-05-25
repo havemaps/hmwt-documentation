@@ -2,7 +2,7 @@
 
 ## Getting started
 
-### Download dependencies
+### Downloads and accounts
 This tutorial was made using Mac iOS High Sierra v 10.13.6. The following software is used and should be installed before beginning:
 
 - [QGIS3](https://qgis.org/en/site/forusers/download.html)--[video for Mac install assistance]([watch this vide0]https://www.youtube.com/watch?v=908NyL7roFs)
@@ -22,65 +22,75 @@ This tutorial was made using Mac iOS High Sierra v 10.13.6. The following softwa
 
   ![Image is a screenshot highlighting the New button in GitHub](images/newRepo.png "Create repository")
 
-3. Click **Set up in Desktop**. If a window appears in the browser asking how to open it, choose the option **Open GitHub Desktop.app**.
+3. Under **Quick setup**, click the button beneath it for **Set up in Desktop**. If a window appears in the browser asking how to open it, choose the option **Open GitHub Desktop.app**.
 
-  ![Image is a screenshot of the Quick setup in GitHub](images/setUpDesktop.png "Set up in desktop")
+  ![Image is a screenshot of the Quick setup section in GitHub](images/setUpDesktop.png "Set up in Desktop")
 
 4. Make sure the local desktop path looks correct, i.e., somewhere you will remember, and click **clone**.
 
 ## List places and draft text
-While I am travelling, I make sure to write down the names of the places that I visit: restaurants, sites, etc.
+While I am traveling, I make sure to write down the names of the places that I visit: restaurants, sites, etc.
 
-1. List the places to display on a map in spreadsheet. This documentation shows Google Sheets. If using an Excel or Numbers file, this should be saved in the git repository created in the previous section.
+1. In a spreadsheet (e.g., Google Sheets, Excel) create a column called **Place** and a column called **Description**
 
-2. Once the places are listed, in the next column write the content to be displayed on the map when the place is clicked in the final map. This text will also be used in the text description to show below the map.
+2. In the Place column list the places to display on a map.
+
+3. Once the places are listed, in the adjacent column write the content to be displayed on the map when the place is clicked in the final map. For example, write a description of what you experienced at the place or more details describing it. This text will also be used later on to create the text description to post below the map.
+
+4. Additional columns can be added here or later on in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images (only use an image column if **all places** have an associated image).
 
 ## Image processing
-### Add images to git repository and resize images
+### Add images to git repository and resize
+These instructions are for Mac. The command may or may not be compatible with other operating systems.
 1. Load photos to computer. I take photos with an iPhone, so I use AirDrop.
 
-2. If not done previously, create a new folder in the git repository called images.
+2. Create a **new folder** in the git repository called **images**.
 
-3. Copy photos into git repository file titled images. Make sure to **COPY** the images or have a backup because these images will be resized.
+3. **Copy** photos into git repository folder titled images. Make sure to **COPY** the images or have a backup because these images will be resized.
 
-4. If desired, rename the photos to something more descriptive and memorable.
+4. (Optional) Rename the photos to something simpler or more systematic.
 
-5. Open the Terminal. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
+5. Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
 
   ![Image is a screenshot of searching for Terminal in Mac's spotlight](images/terminal.png "Terminal in Spotlight")
 
-6. Change the directory using the command `cd` to the git repository with the images. For example:
+6. Change the directory using the command `cd` (change directory) to the git repository with the images. For example, use a relative file path like:
 
-```
-cd git
-cd 2019_oslo
-cd images
-```
-  Or use a relative path like:
-```
-cd git/2019_oslo/images
-```
-7. Once Terminal shows that it is in the directory for the images, use the following code to resize the images to 300 pixels, or the desired resize:
+  ```
+  cd git/2019_oslo/images
+  ```
+  - If you are uncertain of the relative path or how to use it, use the `cd` (change directory) command through to get to the images directory:
 
-```
-sips -Z 300 *.jpg
-```
-  In the above code the **300 is the pixel width**--the height is auto-scaled. The * (asterisk) represents choosing **all files** with the file type .jpg. **The code above is case sensitive.** Meaning, sometimes I need to run this twice because the file type of some images is **.JPG** and not **.jpg**. This also works for .png, .tiff, etc. I do not suggest using anything larger than 300 pixels in the leaflet popup--these maps are not exactly the best platform for showcasing high-quality images.
+  ```
+  cd git
+  cd 2019_oslo
+  cd images
+  ```
 
-8. Open GitHub Desktop
+7. Once Terminal shows that it is in the directory for the images for this project, use the following code to resize the **all .jpg images to 300 pixels**, or the desired size:
 
-  - If not already selected, select the project repository.
-  - Notice the relative path for all images added are listed in Changes.
-  - I like to delete or set up a .gitignore for the .DS_Store file because it is not necessary. Right click the .DS_Store file for either of these options.
+  ```
+  sips -Z 300 *.jpg
+  ```
+  - In the above code the **300 is the pixel width**--the height is auto-scaled. I do not suggest using anything larger than 300 pixels in the leaflet popup. These maps are not exactly the best platform for showcasing high-quality images. Include a link to a high-quality image if you would like.
+  - The * (asterisk) represents choosing **all files** with the file type **.jpg.** If your files are not .jpg, change it to **.tiff, .png, etc.**
+  - The code above is **case sensitive.** Meaning, sometimes I need to run this twice because the file type of some images are **.JPG** and not **.jpg**.
 
 
-9. At the bottom of the column on the left, type in a summary such as initial commit. If working with others on this project, add a more detailed description.
+8. Open GitHub Desktop.
+
+  - If not already selected, select the project repository from the top left.
+  - Notice in the changes on the left side that the relative path for all images added are listed.
+  - (Optional) I like to delete or set up a .gitignore for the .DS_Store files because it is not necessary. Right click the .DS_Store file for either of these options.
+
+
+9. At the bottom of the column on the left, type in a summary such as initial commit. If working with others on this project, it is usually good to add a more detailed description.
 
 10. Click **Commit to master**.
 
   ![Image is a screenshot highlighting using GitHub desktop to make commits](images/initialCommit.png "initial commit to repository")
 
-11. This is probably the first thing added to the repository, so click **Publish branch** at the top of the window. Depending on how many images, this can take a few moments. If it is taking a very long time, it may be because the images were not resized.
+11. This is probably the first thing added to the repository, so click **Publish branch** in the top right. Depending on how many images are in the folder and their size, this can take a few moments. If it is taking a very long time, it may be because the images were not resized.
 
     ![Image is a screenshot of the Publish Branch button in GitHub Desktop](images/publish.png "Publish this branch to GitHub")
 
