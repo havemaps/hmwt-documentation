@@ -1,11 +1,11 @@
-# Creating and hosting Leaflet maps with qgis2web and GitHub
+# Creating, hosting, and pubishing Leaflet maps with qgis2web and GitHub
 
 ## Getting started
 
 ### Download dependencies
 This tutorial was made using Mac iOS High Sierra v 10.13.6. The following software is used and should be installed before beginning:
 
-- [QGIS3](https://qgis.org/en/site/forusers/download.html)--[video for Mac install assistance]([watch this vide0]https://www.youtube.com/watch?v=908NyL7roFs)
+- [QGIS3](https://qgis.org/en/site/forusers/download.html)--[video for Mac install assistance](https://www.youtube.com/watch?v=908NyL7roFs)
 - [GitHub account](https://github.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [Atom text editor](https://atom.io/)
