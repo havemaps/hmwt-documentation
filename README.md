@@ -1,22 +1,31 @@
-# Creating, hosting, and pubishing Leaflet maps with qgis2web and GitHub
+# Creating, hosting, and publishing Leaflet maps with qgis2web and GitHub
 
 ## Getting started
+
+### About
+These instructions were initially made by Taylor Hixson in June 2019 and are open to updates. For questions, comments, or suggestions email havemaps at gmail dot com.
+
+### Why use [Leaflet](https://leafletjs.com/)?
+Using a free and open-source tool that gives access to source code ensures that you retain access and ownership of the code and data. Many content management system plugins, web map creation platforms (Esri, Carto), and/or freemium services may not allow you to fully retain ownership, often have data limits and restrictions, can use your map and data in any way per any license agreement, can make it difficult to extract the source code and data, may stop offering hosting services at any time, or delete your data without notice.
+
+Hosting your own web maps isn't perfect. You are responsible for the maintenance and any downtime that occurs, but it is a worthwhile endeavor!
+
 
 ### Downloads and accounts
 This tutorial was made using Mac iOS High Sierra v 10.13.6. The following software is used and should be installed before beginning:
 
-- [QGIS3](https://qgis.org/en/site/forusers/download.html)--[video for Mac install assistance](https://www.youtube.com/watch?v=908NyL7roFs)
+- [QGIS3](https://qgis.org/en/site/forusers/download.html)--3.4.7-Madeira used, [video for Mac install assistance](https://www.youtube.com/watch?v=908NyL7roFs)
 - [GitHub account](https://github.com/)
 - [GitHub Desktop](https://desktop.github.com/)
-- [Atom text editor](https://atom.io/)
+- [Atom text editor](https://atom.io/)--version 1.37.0 used
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) and/or [Chrome](https://www.google.com/chrome/) web browsers--I like viewing and testing the map in multiple browsers
 - [Google account](https://support.google.com/accounts/answer/27441?hl=en) (i.e., Gmail account)
-- Google Sheets, Excel, or another spreadsheet editor
-- Access to command line such as Terminal (MacOS)
-- Optional: website. If using WordPress, a business account and iFrame plugin are required.
+- Access to a spreadsheet editor such as Google Sheets, Excel, Calc
+- Access to **command line** such as Terminal (MacOS)
+- **Optional**: access to a website or content management system. If using WordPress, a business account and iFrame plugin are optimal.
 
 ## Create a GitHub repository
-This tutorial uses git and GitHub mostly through the desktop and the online interface rather. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
+This tutorial uses git and GitHub mostly through the desktop and the online interface rather than the command line. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
 
 1. Go to [github.com](https://github.com/) and login. Create a new account if needed.
 
@@ -33,7 +42,7 @@ This tutorial uses git and GitHub mostly through the desktop and the online inte
 ## List places and draft text
 While I am traveling, I make sure to write down the names of the places that I visit: restaurants, sites, etc.
 
-1. Create a new spreadsheet using a software of choice. For example, Google Sheets, Excel, Calc, etc. If creating an spreasheet with a desktop software, create it in the git repository created in the previous section.
+1. Create a new spreadsheet using a software of choice. For example, Google Sheets, Excel, Calc, etc. If creating an spreadsheet with a desktop software, create it in the git repository created in the previous section.
 
 2. In the new spreadsheet create a column titled **Place** and a column titled **Description**.
 
@@ -41,7 +50,7 @@ While I am traveling, I make sure to write down the names of the places that I v
 
 3. Once the places are listed, in the adjacent column titled Description write the content that described your experience that you want to share about the place. This text will also be used later on to create the text description to post below the map. Limit the text to 2-3 **sentences** if at all possible.
 
-4. Additional columns can be added here now or later in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images (only use an image column if **all places** have an associated image).
+4. Additional columns can be added here now or later in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images.
 
 ## Image processing
 ### Resize images
@@ -77,7 +86,8 @@ These instructions are for Mac. The command may or may not be compatible with ot
   sips -Z 300 *.jpg
   ```
   - In the above code the **300 is the pixel width**--the height is auto-scaled. I do not suggest using anything larger than 300 pixels in the leaflet popup. These maps are not exactly the best platform for showcasing high-quality images. Include a link to a high-quality image if you would like.
-  - The * (asterisk) represents choosing **all files** in the directory with the file type **.jpg.** - If your files are **not .jpg**, change it to **.tiff, .png, etc.**
+  - The * (asterisk) represents choosing **all files** in the directory with the file type **.jpg.**
+  - If your files are **not .jpg**, change it to **.tiff, .png, etc.**
   - The code above is **case sensitive.** Meaning, sometimes I need to run this **twice** because the file type of some images are **.JPG** and not **.jpg**.
 
 ### Publish and push images to GitHub
@@ -85,7 +95,7 @@ These instructions are for Mac. The command may or may not be compatible with ot
 
   - If not already selected, select the project repository from the top left.
   - Notice in the changes on the left side that the relative path for all images added are listed.
-  - (Optional for Mac) I like to delete or set up a .gitignore for the .DS_Store files because it is not necessary. Right click the .DS_Store file for either of these options.
+  - (Optional for Mac) I like to delete or set up a .gitignore for the .DS_Store files because it is not necessary. In GitHub Desktop, right click the .DS_Store file for either of these options.
 
 
 9. At the bottom of the column on the left, type in a summary such as initial commit. If working with others on this project, it is usually good to add a more detailed description.
@@ -125,7 +135,7 @@ These instructions are for Mac. The command may or may not be compatible with ot
 
 9. In the first empty cell in the next empty column type `=CONCATENATE` to activate the Concatenate formula.
 
-10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it defeinitely does not work in Google Sheets.
+10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it definitely does not work in Google Sheets.
 
 11. Copy this formula down the column.
 
@@ -205,7 +215,7 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 When the data table is filled out and all places appear on the map, export the data from MyMaps to use in QGIS.
 1. To the right of the map title, click the three stacked dots.
 
-  ![Image is a screenshot showing the three dots to click to the right of the project naame](images/threeDots.png "Click the three dots")
+  ![Image is a screenshot showing the three dots to click to the right of the project name](images/threeDots.png "Click the three dots")
 
 2. Choose **Export to KML/KMZ**.
 
@@ -405,7 +415,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
 11. When the map successfully exported, click OK. The log will show **Success** and the export file path if it is successful.
 
-### Editing qgis2web index.html file
+## Editing qgis2web index.html file
 1. Navigate to the qgis2web folder in the git repository.
 
   ![Image is a screenshot the git repository with the qgis2web export folder](images/exportLocation.png "Exported qgis2web file")
@@ -564,13 +574,14 @@ Iframe html tags (e.g., `<iframe src=" ">`) work with some older versions and in
 If you want to integrate the exported qgis2web map with a WordPress that does not allow the iframe html tags there are a couple ways to do it:
 
 1. A **WordPress business plan** to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
-2. A **hosting service** that allows you to upload html pages in the WordPress source code.
+2. A **hosting service** that allows you to upload html pages in the content management system's source code, but this may still require some use of an iframe. This has not been tested successfully by the tutorial author.
 3. Work with the **index.html** file from qgis2web start adding your own free text and html to create a functional page. Then, link to the gh-pages from the website.
+4. If you do not have a website, try creating a [Jekyll blog](https://jekyllrb.com/) that integrates with Github Pages. **Note**: This has not been tested by the tutorial author, but there is a [good Jekyll tutorial](https://devblast.com/b/create-a-static-websiteblog-with-jekyll-and-github-pages).
 
 ### Using the iframe html tag
-This option may work with some self-hosted websites or institutionally hosted WordPress accounts.
+This option may work with some content management systems, self-hosted websites, or older versions of WordPress.
 
-1. Create a new page or post in the content mamangement system. This example uses WordPress.
+1. Create a new page or post in the content management system. This example uses WordPress.
 
 2.  Using the **classic editor**, choose **Text** instead of Visual.
 
@@ -592,7 +603,7 @@ This option may work with some self-hosted websites or institutionally hosted Wo
 
   ![Image is a screenshot showing the option for the shortcode widget in WordPress.](images/shortCode.png "Use a Shortcode block")
 
-3. Type `[iframe src=" " scrolling="no"]`. If you would prefer to have scroll bars on the map, type `scrolling="yes"` or do not use the `scrolling=` at all.
+3. Type [iframe src=" " scrolling="no"]. If you would prefer to have scroll bars on the map, type `scrolling="yes"` or do not use the `scrolling=` at all.
 
 4. Between the **iframe src= quotation marks**, paste the link to the **GitHub Pages** hosted site for the project repository.
   - The link should look like https://YourGitHubAccount.github.io/repoName/webapp. This link is different from just linking to the project repository.
@@ -603,7 +614,7 @@ This option may work with some self-hosted websites or institutionally hosted Wo
 
 ## Map text description
 
-Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatability with a screenreader, vision impairment, and neurological differences that make interpreting complex images difficult.
+Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatibility with a screenreader, vision impairment, and neurological differences that make interpreting complex images difficult.
 
 Below the map, include a thorough text description. Drafting the text descriptions in a spreadsheet from the start helps with the text description process because it makes it easy to directly copy text into the post editor. If the places were not listed in any particular order, make an effort to arrange the text descriptions in a way that will make narrative sense.
 
