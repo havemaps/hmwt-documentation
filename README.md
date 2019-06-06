@@ -16,7 +16,7 @@ This tutorial was made using Mac iOS High Sierra v 10.13.6. The following softwa
 - Optional: website. If using WordPress, a business account and iFrame plugin are required.
 
 ## Create a GitHub repository
-This tutorial will mostly use GitHub desktop and the online interface. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal, too. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
+This tutorial uses git and GitHub mostly through the desktop and the online interface rather. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
 
 1. Go to [github.com](https://github.com/) and login. Create a new account if needed.
 
@@ -33,24 +33,26 @@ This tutorial will mostly use GitHub desktop and the online interface. All steps
 ## List places and draft text
 While I am traveling, I make sure to write down the names of the places that I visit: restaurants, sites, etc.
 
-1. In a spreadsheet (e.g., Google Sheets, Excel) create a column called **Place** and a column called **Description**
+1. Create a new spreadsheet using a software of choice. For example, Google Sheets, Excel, Calc, etc. If creating an spreasheet with a desktop software, create it in the git repository created in the previous section.
 
-2. In the Place column list the places to display on a map.
+2. In the new spreadsheet create a column titled **Place** and a column titled **Description**.
 
-3. Once the places are listed, in the adjacent column write the content to be displayed on the map when the place is clicked in the final map. For example, write a description of what you experienced at the place or more details describing it. This text will also be used later on to create the text description to post below the map.
+2. In the Place column list the places visited to display on the map.
 
-4. Additional columns can be added here or later on in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images (only use an image column if **all places** have an associated image).
+3. Once the places are listed, in the adjacent column titled Description write the content that described your experience that you want to share about the place. This text will also be used later on to create the text description to post below the map. Limit the text to 2-3 **sentences** if at all possible.
+
+4. Additional columns can be added here now or later in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images (only use an image column if **all places** have an associated image).
 
 ## Image processing
 ### Resize images
 These instructions are for Mac. The command may or may not be compatible with other operating systems.
 1. Load photos to computer. I take photos with an iPhone, so I use AirDrop.
 
-2. Create a **new folder** in the git repository called **images**.
+2. In the git repository for the project, create a **new folder** titled **images**.
 
 3. **Copy** photos into git repository folder titled images. Make sure to **COPY** the images or have a backup because these images will be resized.
 
-4. (Optional) Rename the photos to something simpler or more systematic.
+4. (Optional) Rename the photos to something simpler or more systematic to make it easier to link them with the corresponding places in a later step.
 
 5. Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
 
@@ -61,7 +63,7 @@ These instructions are for Mac. The command may or may not be compatible with ot
   ```
   cd git/2019_oslo/images
   ```
-  - If you are uncertain of the relative path or how to use it, use the `cd` (change directory) command through to get to the images directory:
+  - If you are uncertain of the relative path or how to use it, use the `cd` (change directory) command through each subfolder to get to the images directory:
 
   ```
   cd git
@@ -69,14 +71,14 @@ These instructions are for Mac. The command may or may not be compatible with ot
   cd images
   ```
 
-7. Once Terminal shows that it is in the directory for the images for this project, use the following code to resize the **all .jpg images to 300 pixels**, or the desired size:
+7. Once Terminal shows that it is in the correct directory for the images for this project, use the following code to resize **all images to 300 pixels**, or the desired size:
 
   ```
   sips -Z 300 *.jpg
   ```
   - In the above code the **300 is the pixel width**--the height is auto-scaled. I do not suggest using anything larger than 300 pixels in the leaflet popup. These maps are not exactly the best platform for showcasing high-quality images. Include a link to a high-quality image if you would like.
-  - The * (asterisk) represents choosing **all files** with the file type **.jpg.** If your files are not .jpg, change it to **.tiff, .png, etc.**
-  - The code above is **case sensitive.** Meaning, sometimes I need to run this twice because the file type of some images are **.JPG** and not **.jpg**.
+  - The * (asterisk) represents choosing **all files** in the directory with the file type **.jpg.** - If your files are **not .jpg**, change it to **.tiff, .png, etc.**
+  - The code above is **case sensitive.** Meaning, sometimes I need to run this **twice** because the file type of some images are **.JPG** and not **.jpg**.
 
 ### Publish and push images to GitHub
 8. Open GitHub Desktop.
@@ -107,31 +109,30 @@ These instructions are for Mac. The command may or may not be compatible with ot
 
   ![Image is screenshot highlighting the Copy Image Address selection when an image is right-clicked in a GitHub online repository](images/copyPath.png "Copy image path")
 
-
-5. Open the spreadsheet with the place names and descriptions from the List places section.
+5. Open the spreadsheet with the place names and descriptions from the **List places... section**.
 
 6. Paste the image link into an empty column in the appropriate row where the image depicts the place listed and described. If using a new spreadsheet, place it  **A1**.
 
   ![Image is a screenshot of an image address pasted into the A1 cell of Google Sheets](images/pathSheets.png "Paste file path")
 
-7. Keep copying and pasting image addresses in a down the column or next to any place with an image for all remaining images.
-  - **Note**: There are many ways to get the image links into the spreadsheet. For example, you can also copy and paste this single image link down the spreadsheet and change just the image name in the link. If there are more than 20 images, finding an automated way to capture addresses may be helpful.
+7. Keep copying and pasting image addresses next to any place with a corresponding image for all remaining images.
+  - **Note**: There are many ways to get the image links into the spreadsheet. For example, you can also copy and paste a single image link down the spreadsheet and change just the image name in the link. If there are more than 20 images, finding an automated way to capture addresses may be helpful.
 
 
 8. In an empty cell in the rows with images, **create alt text** to be read by screen readers or to display when the image does not appear. Alt text should be descriptive of the image **not** the experience.
 
   ![Image is screenshot showing multiple image links in column A and alternative text in column B](images/altText.png "Create alt text column")
 
-9. In the next empty cell in the row type `=CONCATENATE` to activate the Concatenate formula.
+9. In the first empty cell in the next empty column type `=CONCATENATE` to activate the Concatenate formula.
 
-10. Within the Concatenate fomula parentheses () type: ``"<img src=+,A1,"+,"alt=+,B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html.
+10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it defeinitely does not work in Google Sheets.
 
 11. Copy this formula down the column.
 
-12. Copy the column and **paste as values** in the next empty column. In Google Sheets, use command + shift + v to paste as values, or right click/control click the first empty cell and choose Paste Special>Paste Values Only.
+12. Copy the column and **paste as values** in the next empty column. In Google Sheets, use **command + shift + v** to paste as values, or right click/control click the first empty cell and choose Paste Special>Paste Values Only.
 
 13. Use **find and replace** to replace the **+**, or special character used, as a placeholder with a quotation mark.
-  - Highlight the column where the formula was pasted as values only. This will make sure only this range is searched for find and replace.
+  - Highlight the column where the formula was pasted as **values only**. This will make sure only this range is searched for find and replace.
   - Press command or ctrl + F to open **find and replace** in Google Sheets.
   - In Google Sheets, press the three stacked dots at the right of the window for more options.
   - Type **+** in Find and **"** in Replace with. Select replace all. Then, press Done.
@@ -140,19 +141,29 @@ These instructions are for Mac. The command may or may not be compatible with ot
 
   ![Image is a screenshot highlighting how the find and replace works in the spreadsheet to replace all plus signs with quotation marks](images/findReplaceComplete.png "Quotations should replace plus sign or special characters")
 
-## Create geospatial data
+14. **Delete** the column with the Concatenate formula, NOT the column with the final image link.
 
-### Options for geocoding (getting coordinates)
-There are any number of ways to get coordinates and organize the geospatial data for the map. I usually start by creating a map with [mymaps.google.com](https://mymaps.google.com), which the following steps will demonstrate. With Google MyMaps you can easily create or import points, lines, and polygons.  If wanting to use raster data (e.g., georeferenced scanned maps), add that at a later point. These steps are only for creating and adding vector data.
+14. Now, there are a few options for how to integrate the image links:
+  - **Concatenate** the Description column and the column with the final image links. If doing this, add a html manual line break `<br>` in the concatenate formula. This will NOT show the line break immediately, but the break **should** appear in the final map.
+  - In the column with the final image links, add the column title **Image**.
 
-Sometimes the places I visit might not have a precise address or indexed location (e.g., campsites, sailing locations), so I really like being able to identify the location with the imagery.
+## Create geospatial data with Google MyMaps
 
-If you have **more than 20 places** to map that are likely to be on Google under known place names:
+### Google MyMaps
+There are any number of ways to get coordinates for the places in the spreadsheet ready to map. I usually start by creating a map with [mymaps.google.com](https://mymaps.google.com), which the following steps will demonstrate. These steps are only for creating and adding vector data (points, lines, polygons). If wanting to use raster data (e.g., georeferenced scanned maps), add that at a later point in QGIS.
+
+#### Why I use Google My Maps:
+- Sometimes the places I visit might not have a precise address or indexed location (e.g., campsites, sailing locations) or I am not familiar enough with the language to identify if the place that comes up in Google is correct, so I really like being able to identify or double check the location with the Google Earth imagery and streets.
+- I do find the Google search to be good for places that are known by Google. However, if the Google place is incorrect, it is easy to move the point manually.
+- With Google MyMaps you can easily create your own and import points, lines, and polygons.
+
+#### Alternative options
+If you have **more than 20 places** to map that are likely to be known places names in Google:
   - Use [Geocode by Awesome Table](https://support.awesome-table.com/hc/en-us/sections/360000012309-Geocode) on the Google Sheet used in the previous sections
-  - Download as a Comma Separated Values file (.csv)
-  - Either add it to MyMaps to check the geocoding or add it directly to QGIS. If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place and/or add any places that did not appear at all.
+  - Download the sheet as a Comma Separated Values file (.csv)
+  - Either add it to MyMaps to check the geocoding or [import the CSV to QGIS](https://www.qgistutorials.com/en/docs/importing_spreadsheets_csv.html). If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place and/or add any places that did not appear at all.
 
-If you are not using Google Sheets or if you do not want to use the Geocode by Awesome Table add-on, there are many manual and batch ways to get latitude and longitude:
+If you are not using Google Sheets or if you do not want to use the Geocode by Awesome Table add-on, there are many manual and batch ways to get latitude and longitude for place names:
   - [latlong.net](https://www.latlong.net/)
   - [batchgeo.com](https://batchgeo.com/)
   - [geocode.localfocus.nl](https://geocode.localfocus.nl/)
@@ -165,13 +176,16 @@ If you are not using Google Sheets or if you do not want to use the Geocode by A
 3. Search for a place traveled in the search bar by typing it in or copying it from the spreadsheet and pressing enter/return or clicking the magnifying glass button.
 
   ![Image is a screenshot of using the search in Google MyMaps](images/searchPlace.png "Search for a place")
+  - **Alternatively**, import the spreadsheet you have been working in and see if Google can identify the places.
+
 
 4. If the place appears in the correct place, click **+Add to map** in the bottom of the pop up box.
-If the place does **not appear**, zoom around the map to try to find the approximate location, and then, click the **balloon icon* below the search bar to **manually add** a marker.
+If the place does **not appear**, zoom around the map to try to find the approximate location, and then, click the **balloon icon below the search bar** to manually add a marker.
   - Repeat either process for all places.
   - Keep all like data (e.g., all points) in one layer.
-  - This method is recommended for fewer than 20 places.
+  - This method is recommended for fewer than 20 places, or as many places as you can stand to add manually.
 
+    ![Image shoes the Add to Map button in the pop up](images/addToMap.png "Add to Map")
 
 5. Next to the layer title, which is probably **Untitled layer**, click the **three stacked dots**, and then, click **Open data table.**
 
@@ -181,8 +195,8 @@ If the place does **not appear**, zoom around the map to try to find the approxi
   - This is when I like to copy the text description and image links from the Google Sheet into the table.
   - I usually add the image link in the description, but some may prefer to have it in its own column, especially if every place has an image.
   - When adding image links to the description column, **add a manual line break** in the cell between the text and link using **shift + enter/return**. Just using enter/return will select the next cell.
-  - Whether adding an image link from the spreadsheet or creating a new one here, the image link should look something like: `<img src="https://github.com/yourname/yourrep/img.jpg" alt="Don't forget to add descriptive alt text">`
-  - **Image links will appear as text NOT an image. The image will not appear until it is in Leaflet**
+  - Whether adding an image link from the spreadsheet or creating a new one here, the image link should look something like: `<img src="https://github.com/yourname/yourrep/img.jpg" alt="Don't forget to add descriptive alt text with the alt tag">`
+  - **Image links will appear as this html text NOT an image. The image will not appear until it is in the final Leaflet map**
   - If preferred, add categories for the places, such as site, lodging, food.
   - To capitalize or change the column titles, click the column title dropdown and choose **Duplicate**. In the popup, change the title to the desired word or phrase. **Single words are preferable**. Then, delete the old column.
 
@@ -346,10 +360,12 @@ KML files come with a lot of extra columns, and this carried over to the geojson
 9. Click the pencil icon in the top left again when finished. Make sure to save edits.
 
 ### Styling the map
-You may wish to style the points or categorize the data on the map. However, you can also leave the default point marker and change it to a leaflet style, which is demonstrated in a later step.
+You may wish to style the points or categorize the data on the map. If you have never styled or categorized vector data in QGIS before or need a refresher, QGIS Tutorials has a good [Vector Styling tutorial](https://www.qgistutorials.com/en/docs/basic_vector_styling.html).
+
+However, you can also leave the default point marker and change it to a leaflet style, which is demonstrated in a later step.
 
 ### Using qgis2web to export Leaflet code
-The point of using qgis2web instead of immediately starting with Leaflet is that qgis2web can output complex and correct javascript for pop-ups, legends, and other map options without needing to know the code. Then, it is very simple to go into qgis2web's file outputs to make customizations and additions for basemaps, markers, etc.
+The point of using qgis2web instead of immediately starting with Leaflet is that qgis2web can output complex and correct javascript for pop-ups, legends, and other map options without needing to know the code. Then, it is very simple to go into qgis2web's file outputs to make customizations and additions for basemaps, markers, more places, etc.
 
 1. From the top toolbar in QGIS, click **Web>qgis2web>Create web map**.
 
@@ -359,11 +375,11 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot showing the Leaflet option and Update preview button](images/updatePreview.png "update the map preview")
 
-3. Make sure the map appears in the right side of the Export to web map window. If nothing appears or only one layer appears, there are two simple possibilities: 1) Leaflet is not selected or 2) the projection is probably incorrect--return to that step.
+3. Make sure the map appears in the right side of the Export to web map window. If nothing appears or only one layer appears, there are two simple possibilities: 1) Leaflet is not selected or 2) the projection is probably incorrect--return to the Create Projected GeoJSON section.
 
   ![Image is a screenshot showing the map preview](images/mapPreview.png "View the map preview")
 
-4. Under Layers and Groups, change the Popup fields dropdowns. I prefer to use **header label**, but the other options are inline label and None. None means the field will appear but without a label.
+4. Under **Layers and Groups**, change the **Popup fields dropdowns**. I prefer to use **header label**, but the other options are inline label and None. **None** means the field **will appear** but without a label.
 
   ![Image is a screenshot showing the popup fields as header labels](images/labels.png "Update popup labels")
 
@@ -371,7 +387,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot highlighting the Add layers list option](images/legend.png "Add a legend")
 
-6. Make any other desired appearance changes. For example, and a layer search, measure tool, or have a custom map extent (how far someone can zoom in, out, and around). Click Update preview to see how any changes will look.
+6. Make any other desired appearance changes. For example, and a **layer search and/or address search** to make the map more **web accessible**, measure tool, or have a custom map extent (how far someone can zoom in, out, and around). Click Update preview to see how any changes will look.
 
 7. Click the **Export tab**.
 
@@ -394,7 +410,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot the git repository with the qgis2web export folder](images/exportLocation.png "Exported qgis2web file")
 
-2. Rename the very long qgis2web folder name to **webapp**. This rename will be important at a later step. It is not necessary to use webapp specifically, but name it something short and memorable.
+2. **Rename** the very long qgis2web folder name to **webapp**. This rename will be important for creating GitHub Pages at a later step. It is not necessary to use webapp specifically, but name it something short and memorable.
 
 3. Open the folder, which is now named **webapp** in this tutorial, and double click the **index.html** file. The map will open in the default web browser. If for some reason the map is not appearing, right click the file and select Open with to open it with another web browser (e.g., Firefox instead of Chrome).
 
@@ -403,12 +419,11 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
   ![Image is a screenshot demonstrating how to open the file with Atom](images/openAtom.png "Open the html file with Atom")
 
     - As changes are made in the following steps, use command + S or File>Save to save edits.
-
     - Periodically refresh the browser window with the map that is open to see the changes.
-
     - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes (command + shift + z is redo). Check to see: was a colon or curly bracket accidentally deleted? If a variable was changed, were all variable names in the file updated and spelled correctly?
 
-4. Within the head tags (`<head>`), delete line 6, or the line which begins `meta name="viewport"...`.
+
+5. Within the head tags (`<head>`), delete line 6, or the line which begins `meta name="viewport"...`.
 
   ![Image is a screenshot demonstrating how to open the file with Atom](images/delete6.png "Open the html file with Atom")
 
@@ -437,17 +452,17 @@ overflow-y: scroll;
 ```
   ![Image is a screenshot showing where to paste the customized popup code in line 23 after the closed curly bracket](images/popupCode.png "Paste the customized popup code")
 
-8. (Optional) Delete the custom marker code to use the default Leaflet marker. Use command + F to find `marker`.
+8. (Optional) Use command + F to find `marker`.
 
   ![Image is a screenshot showing where to find the point markers](images/marker.png "Change the markers")
 
-10. Change `L.circleMarker` to `L.marker` to use the default Leaflet balloon markers instead of the one exported from QGIS. No need to delete any of the function `style_oslo_1_0`, Leaflet will now ignore it.
+9. (Optional) Change `L.circleMarker` to `L.marker` to use the default Leaflet balloon markers instead of the one exported from QGIS. No need to delete any of the function `style_oslo_1_0`, Leaflet will now ignore it.
 
-9. (Optional steps 10-13) Change the basemap to the Google Earth and Streets hybrid basemap.
+10. (Optional steps 10-15) Change the basemap to the Google Earth and Streets hybrid basemap.
 
-9. Use command + F to find `var layer_OSMStandard_0`.
+11. Use command + F to find `var layer_OSMStandard_0`. This text may vary if you used a different basemap from the start.
 
-10.  Delete the lines of code that are as follows:
+12.  Delete the lines of code that are as follows:
 
 ```    js    
 var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -456,7 +471,7 @@ var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}
         });
         layer_OSMStandard_0;
 ```
-11. Replace the code with the following:
+13. Replace the code with the following:
 
 ``` js
 var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
@@ -467,18 +482,18 @@ var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z
 
 googleHybrid;
 ```
-12. Do a find and replace (command + F) for anything else that remains as `layer_OSMStandard_0` and replace it with `googleHybrid`
+14. Do a find and replace (command + F) for anything else that remains as `layer_OSMStandard_0` and replace it with `googleHybrid`
 
   ![Image is a screenshot showing the Atom find and replace window.](images/replaceVar.png "Replace with googleHybrid")
 
-7. Open **find and replace** (command + F) to find all instances of **http:** web addresses and replace it with **https:**. Only do this with web addresses and **NOT** any http instances within a variable name or tag). This is necessary so that the final map does not create an insecure connection on websites. If this is not done, the website the map is embedded will appear as insecure.
+15. **Make your map secure**: Open **find and replace** (command + F) to find all instances of **http:** web addresses and replace it with **https:**. Only do this with web addresses and **NOT** any http instances within a variable name or tag). This is necessary so that the final map does not create an insecure connection on websites. If this is not done, the website the map is embedded will appear as insecure.
 
   ![Image is a screenshot showing http web address](images/http.png "Change all http: to https:")
 
   ![Image is a screenshot showing the change to an https web address](images/https.png "Change all http: to https:")
 
 
-13. (Optional) Edit the legend to reflect the changes made such as the new basemap name and to remove the old marker image.
+16. (Optional) Edit the legend to reflect the changes made such as the new basemap name and to remove the old marker image.
 
 14. Use command + F to find the line that begins with `L.control.layers`.
 
@@ -496,7 +511,9 @@ googleHybrid;
 
   ![Image is a screenshot showing the image path to delete.](images/afterLegend.png "Edit the legend")
 
-16. Make sure to continue to check the updates in the browser. Do the changes appear? If the map is not appearing at all, try to troubleshoot the code in the index.html file: was a colon or curly bracket accidentally deleted? Were all variable names changed if choosing a new basemap?
+16. Make sure to continue to refresh the map in the browser to check the updates. Do the changes appear? If the map is not appearing at all, try to troubleshoot the code in the index.html file:
+  - Was a colon or curly bracket accidentally deleted?
+  - Were all variable names changed if choosing a new basemap?
 
 ### Push changes to GitHub
 1. Open GitHub Desktop.
@@ -533,21 +550,22 @@ googleHybrid;
 6. Now you can see the map at the branch's GitHub Pages site at YourGitHubAccount.github.io/gitRepositoryName/webapp.
   - YourGitHubAccount = replace with your GitHub account named
   - .github.io/ = keep as is
-  - gitRepositoryName = input the git repository name
-  - webapp = this is the file that originally had the long qgis2web title and was changed to webapp in the section **Editing qgis2web index.html file**
-  - For example, [havemaps.github.io/2019_oslo/webapp](https://havemaps.github.io/2019_oslo/webapp/#13/59.9096/10.7292)
+  - gitRepositoryName = input the git repository name such as 2019_oslo
+  - webapp = this is the folder that originally had the long qgis2web title and was changed to webapp in the section **Editing qgis2web index.html file**
+  - For example a gh-pages link would like [havemaps.github.io/2019_oslo/webapp](https://havemaps.github.io/2019_oslo/webapp/#13/59.9096/10.7292)
 
 ## Integrating with a website
 The simplest way to embed the Leaflet map into a website is with an iframe. This may or may not be possible depending on the content management system being used.  
 
 As of May 2019, iframe html tags `<iframe>` do not seem to be compatible with the most recent version of free, personal instances of WordPress. The best reason I could find was "due to security reasons"
 
-Iframe html tags (e.g., `<iframe src=" ">`) work with some university institutional instances of WordPress.
+Iframe html tags (e.g., `<iframe src=" ">`) work with some older versions and instances of WordPress.
 
 If you want to integrate the exported qgis2web map with a WordPress that does not allow the iframe html tags there are a couple ways to do it:
 
-1. A **business plan** is required to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
+1. A **WordPress business plan** to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
 2. A **hosting service** that allows you to upload html pages in the WordPress source code.
+3. Work with the **index.html** file from qgis2web start adding your own free text and html to create a functional page. Then, link to the gh-pages from the website.
 
 ### Using the iframe html tag
 This option may work with some self-hosted websites or institutionally hosted WordPress accounts.
@@ -585,9 +603,10 @@ This option may work with some self-hosted websites or institutionally hosted Wo
 
 ## Map text description
 
-Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatability with a screenreader, vision impairment, and neurological differences. Below the map, include a thorough text description. A thorough text description aims to give an equivalent experience to all users.
+Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatability with a screenreader, vision impairment, and neurological differences that make interpreting complex images difficult.
 
-For example, if the map is of places, make an effort to provide a narrative or list that describes the places as they are on the map.
-Starting in a spreadsheet helps with the text description process because it makes it easy to directly copy column information into the post editor. Make an effort to arrange the text descriptions in a way that will make narrative sense.
+Below the map, include a thorough text description. Drafting the text descriptions in a spreadsheet from the start helps with the text description process because it makes it easy to directly copy text into the post editor. If the places were not listed in any particular order, make an effort to arrange the text descriptions in a way that will make narrative sense.
+
+For example, if the map is of places, make an effort to provide a narrative or list that describes the places in the order they were visited. A thorough text description aims to give an equivalent experience to all users.
 
 Find live examples of map text descriptions on [my About page](https://havemapswilltravel.com/about) (click Expand text description) and all of my posts such as [Musandam 2019](https://havemapswilltravel.com/2019/05/15/20190404-musandam/).
