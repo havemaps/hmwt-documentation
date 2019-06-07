@@ -5,6 +5,8 @@
 ### About
 These instructions were initially made by Taylor Hixson in June 2019 and are open to updates. For questions, comments, or suggestions email havemaps at gmail dot com.
 
+This documentation provides a foundation for getting started with creating, configuring, and hosting web maps with Leaflet and GitHub, and it is not meant to give a comprehensive introduction to all applications used, such as QGIS and Atom. Familiarity with editing html documents in a text editor and some foundational experience with geospatial data, GIS, and GitHub may be helpful if following along.
+
 ### Why use [Leaflet](https://leafletjs.com/)?
 Using a free and open-source tool that gives access to source code ensures that you retain access and ownership of the code and data. Many content management system plugins, web map creation platforms (Esri, Carto), and/or freemium services may not allow you to fully retain ownership, often have data limits and restrictions, can use your map and data in any way per any license agreement, can make it difficult to extract the source code and data, may stop offering hosting services at any time, or delete your data without notice.
 
@@ -42,19 +44,19 @@ This tutorial uses git and GitHub mostly through the desktop and the online inte
 ## List places and draft text
 While I am traveling, I make sure to write down the names of the places that I visit: restaurants, sites, etc.
 
-1. Create a new spreadsheet using a software of choice. For example, Google Sheets, Excel, Calc, etc. If creating an spreadsheet with a desktop software, create it in the git repository created in the previous section.
+1. Create a new spreadsheet using a software of choice. For example, Google Sheets, Excel, Calc, etc. If creating a spreadsheet with a desktop software, create it in the git repository created in the previous section.
 
 2. In the new spreadsheet create a column titled **Place** and a column titled **Description**.
 
-2. In the Place column list the places visited to display on the map.
+2. In the Place column list the places visited to display on the map. For example, a restaurant or hotel name. The place does not need to be a full address or include all location details.
 
 3. Once the places are listed, in the adjacent column titled Description write the content that described your experience that you want to share about the place. This text will also be used later on to create the text description to post below the map. Limit the text to 2-3 **sentences** if at all possible.
 
-4. Additional columns can be added here now or later in another step. Some additional columns to consider are categories for place type (site, accommodation, food & drink, etc.) and images.
+4. Additional columns can be added here now or later in another step. This step will be repeated, so do not spend too much time on it. However, it is good to make some notes about additional columns to consider such as categorical information, dates, and images.
 
 ## Image processing
 ### Resize images
-These instructions are for Mac. The command may or may not be compatible with other operating systems.
+If not using any images in the map popup, skip the following sections. These instructions are for Mac. The command may or may not be compatible with other operating systems.
 1. Load photos to computer. I take photos with an iPhone, so I use AirDrop.
 
 2. In the git repository for the project, create a **new folder** titled **images**.
@@ -111,7 +113,7 @@ These instructions are for Mac. The command may or may not be compatible with ot
 ### Create html image links
 1. Go to [GitHub.com](https://github.com), and go to the project repository.
 
-2. Click the ** images** folder.
+2. Click the **images** folder.
 
 3. Click on an individual image link in the folder.
 
@@ -157,35 +159,35 @@ These instructions are for Mac. The command may or may not be compatible with ot
   - **Concatenate** the Description column and the column with the final image links. If doing this, add a html manual line break `<br>` in the concatenate formula. This will NOT show the line break immediately, but the break **should** appear in the final map.
   - In the column with the final image links, add the column title **Image**.
 
-## Create geospatial data with Google MyMaps
+## Create geospatial data with Google My Maps
 
-### Google MyMaps
+### Google My Maps
 There are any number of ways to get coordinates for the places in the spreadsheet ready to map. I usually start by creating a map with [mymaps.google.com](https://mymaps.google.com), which the following steps will demonstrate. These steps are only for creating and adding vector data (points, lines, polygons). If wanting to use raster data (e.g., georeferenced scanned maps), add that at a later point in QGIS.
 
 #### Why I use Google My Maps:
 - Sometimes the places I visit might not have a precise address or indexed location (e.g., campsites, sailing locations) or I am not familiar enough with the language to identify if the place that comes up in Google is correct, so I really like being able to identify or double check the location with the Google Earth imagery and streets.
 - I do find the Google search to be good for places that are known by Google. However, if the Google place is incorrect, it is easy to move the point manually.
-- With Google MyMaps you can easily create your own and import points, lines, and polygons.
+- With Google My Maps you can easily create your own and import points, lines, and polygons.
 
 #### Alternative options
 If you have **more than 20 places** to map that are likely to be known places names in Google:
   - Use [Geocode by Awesome Table](https://support.awesome-table.com/hc/en-us/sections/360000012309-Geocode) on the Google Sheet used in the previous sections
   - Download the sheet as a Comma Separated Values file (.csv)
-  - Either add it to MyMaps to check the geocoding or [import the CSV to QGIS](https://www.qgistutorials.com/en/docs/importing_spreadsheets_csv.html). If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place and/or add any places that did not appear at all.
+  - Either add it to My Maps to check the geocoding or [import the CSV to QGIS](https://www.qgistutorials.com/en/docs/importing_spreadsheets_csv.html). If anything appears incorrectly in MyMaps, manually move any that are in the incorrect place and/or add any places that did not appear at all.
 
 If you are not using Google Sheets or if you do not want to use the Geocode by Awesome Table add-on, there are many manual and batch ways to get latitude and longitude for place names:
   - [latlong.net](https://www.latlong.net/)
   - [batchgeo.com](https://batchgeo.com/)
   - [geocode.localfocus.nl](https://geocode.localfocus.nl/)
 
-### Add places to MyMaps
+### Add places to My Maps
 1. Go to [mymaps.google.com](https://mymaps.google.com). If you do not have a [Google account](https://accounts.google.com/SignUp), create one to save projects.
 
 2. Click the red circle with the plus sign in the bottom right to create a new map.
 
 3. Search for a place traveled in the search bar by typing it in or copying it from the spreadsheet and pressing enter/return or clicking the magnifying glass button.
 
-  ![Image is a screenshot of using the search in Google MyMaps](images/searchPlace.png "Search for a place")
+  ![Image is a screenshot of using the search in Google My Maps](images/searchPlace.png "Search for a place")
   - **Alternatively**, import the spreadsheet you have been working in and see if Google can identify the places.
 
 
@@ -212,7 +214,7 @@ If the place does **not appear**, zoom around the map to try to find the approxi
 
 
 ### Export KML
-When the data table is filled out and all places appear on the map, export the data from MyMaps to use in QGIS.
+When the data table is filled out and all places appear on the map, export the data from My Maps to use in QGIS.
 1. To the right of the map title, click the three stacked dots.
 
   ![Image is a screenshot showing the three dots to click to the right of the project name](images/threeDots.png "Click the three dots")
@@ -275,7 +277,7 @@ When the data table is filled out and all places appear on the map, export the d
 
       ![Image is a screenshot highlighting the box that needs to be checked to the left of the plugin name](images/checked.png "Box is checked")
 
-8. Search for **QuickMapServices**, and click **Install Plugin**. Make sure the box next to it is checked, too.
+8. Search for **QuickMapServices**, and click **Install Plugin**. Make sure the box next to it is checked, too. [Open GIS Lab has a tutorial](https://opengislab.com/blog/2018/4/15/add-basemaps-in-qgis-30) and more information about configuring QuickMapServices and accessing more basemap options than the default.
 
       ![Image is a screenshot of the QuickMapServices plugin information window](images/qms.png "QuickMapServices QGIS plugin")
 
@@ -286,7 +288,7 @@ When the data table is filled out and all places appear on the map, export the d
       ![Image is a screenshot of highlighting that the two plugins are available under Web](images/installed.png "PLugins are installed")
 
 ### Create Projected GeoJSON
-Now, the data from MyMaps needs to be **reprojected** to match the OpenStreetMap projection: EPSG 3857. This is a required step even if using a different basemap from the web such as Google or MapBox. This step is not necessary if you are **not** using a basemap at all or have created your own basemap either with georeferenced imagery/maps or vector data.
+Now, the data from My Maps needs to be **reprojected** to match the OpenStreetMap projection: EPSG 3857. This is a required step even if using a different basemap from the web such as Google or MapBox. This step is not necessary if you are **not** using a basemap at all or have created your own basemap either with georeferenced imagery/maps or vector data.
 1. Open QGIS if it was closed after the last section.
 
 2. Drag the **downloaded KML** with the data for this project into the **Layers panel**. If the Layers panel is not open, from the top menu click **View>Panels>Layers**.
@@ -301,7 +303,7 @@ Now, the data from MyMaps needs to be **reprojected** to match the OpenStreetMap
 
 
 6. For the **parameters** in the window that appears:
-  - **Input layer** should be the kml from MyMaps. Search for it if necessary
+  - **Input layer** should be the kml from My Maps. Search for it if necessary
   - The **Target CRS is EPSG:3857**. If it is not in the dropdown, click the **globe icon** and **search for 3857**. This projection appears under Projected Coordinate Systems>Mercator>WGS 84 / Pseudo-Mercator, Authority ID EPSG:3857.
   - For **Reprojected**, click the **three dots**, and choose **Save to File**.
   - In the navigator, change the output file type to **.geojson**, give it a name, and choose the **Git repository** for this project as the **file directory path** to save the output.
@@ -569,9 +571,9 @@ The simplest way to embed the Leaflet map into a website is with an iframe. This
 
 As of May 2019, iframe html tags `<iframe>` do not seem to be compatible with the most recent version of free, personal instances of WordPress. The best reason I could find was "due to security reasons"
 
-Iframe html tags (e.g., `<iframe src=" ">`) work with some older versions and instances of WordPress.
+Iframe html tags (e.g., `<iframe src=" ">`) may work with other content management systems and some older versions and instances of WordPress.
 
-If you want to integrate the exported qgis2web map with a WordPress that does not allow the iframe html tags there are a couple ways to do it:
+If you want to integrate the exported qgis2web map with a content management system that does not allow the iframe html tags or you do not currently have access to one there are a few ways to do it:
 
 1. A **WordPress business plan** to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
 2. A **hosting service** that allows you to upload html pages in the content management system's source code, but this may still require some use of an iframe. This has not been tested successfully by the tutorial author.
@@ -595,7 +597,7 @@ This option may work with some content management systems, self-hosted websites,
 
 ### WordPress iframe plugin
 
-1. Add the iFrame plugin to a WordPress website you administer that has a business plan or higher.
+1. Add the [iFrame plugin](https://wordpress.org/plugins/iframe/) to a WordPress website you administer that has a business plan or higher.
 
 1. Create a new page or post.
 
@@ -614,7 +616,7 @@ This option may work with some content management systems, self-hosted websites,
 
 ## Map text description
 
-Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatibility with a screenreader, vision impairment, and neurological differences that make interpreting complex images difficult.
+Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatibility with a screenreader and/or keyboard-only navigation, vision impairment, and neurological differences.
 
 Below the map, include a thorough text description. Drafting the text descriptions in a spreadsheet from the start helps with the text description process because it makes it easy to directly copy text into the post editor. If the places were not listed in any particular order, make an effort to arrange the text descriptions in a way that will make narrative sense.
 
